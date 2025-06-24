@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: shadowsocks
+    env: python
+    buildCommand: ""
+    startCommand: ./start.sh
+    plan: free
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
