@@ -1,25 +1,34 @@
 package main
 
 import (
-    "log"
-    "github.com/shadowsocks/shadowsocks-go/shadowsocks"
+	"log"
+	"os"
+
+	"github.com/shadowsocks/go-shadowsocks2/core"
+	"github.com/shadowsocks/go-shadowsocks2/shadowsocks"
 )
 
 func main() {
-    cfg := &shadowsocks.Config{
-        Server:   ":8388",
-        Password: "your_secure_password", // CHANGE THIS!
-        Method:   "aes-256-gcm",
-    }
+	// Get port from Render's environment variable or fallback to 8388
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8388"
+	}
 
-    server, err := shadowsocks.NewServer(cfg)
-    if err != nil {
-        log.Fatal("Failed to create Shadowsocks server:", err)
-    }
+	password := "your_secure_password" // CHANGE THIS
+	method := "AEAD_CHACHA20_POLY1305"
 
-    log.Println("Starting Shadowsocks server on port 8388")
-    err = server.ListenAndServe()
-    if err != nil {
-        log.Fatal("Server error:", err)
-    }
+	// Construct the cipher
+	cipher, err := core.PickCipher(method, nil, password)
+	if err != nil {
+		log.Fatalf("Failed to create cipher: %v", err)
+	}
+
+	addr := ":" + port
+	log.Printf("Starting Shadowsocks server on %s with method %s\n", addr, method)
+
+	err = shadowsocks.ListenAndServe(addr, cipher)
+	if err != nil {
+		log.Fatalf("Server error: %v", err)
+	}
 }
