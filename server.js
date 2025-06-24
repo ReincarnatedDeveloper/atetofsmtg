@@ -3,7 +3,7 @@ const shadowsocks = require('shadowsocks-node');
 const server = shadowsocks.createServer({
   password: 'your_secure_password',  // CHANGE this!
   method: 'aes-256-gcm',
-  port: 8388
+  port: 0000
 });
 
 server.listen(() => {
