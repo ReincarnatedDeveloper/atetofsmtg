@@ -1,0 +1,11 @@
+{
+  "name": "shadowsocks-node-render",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "shadowsocks-node": "^0.1.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
