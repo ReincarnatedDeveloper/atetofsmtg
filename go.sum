@@ -1,0 +1,4 @@
+github.com/shadowsocks/go-shadowsocks2 v0.0.0-20230607120107-7f27439a5352 h1:hfmrlqk9Wk0VhSnXJv7mX4G2yo0J3IksGq9iU+jnyyk=
+github.com/shadowsocks/go-shadowsocks2 v0.0.0-20230607120107-7f27439a5352/go.mod h1:bXqD5fwdLnFGEwBhYQyVxWl7/4fFwYXJ0TRxkg02BxgM=
+github.com/shadowsocks/go-shadowsocks2/core v0.0.0-20230607120107-7f27439a5352 h1:hfmrlqk9Wk0VhSnXJv7mX4G2yo0J3IksGq9iU+jnyyk=
+github.com/shadowsocks/go-shadowsocks2/core v0.0.0-20230607120107-7f27439a5352/go.mod h1:bXqD5fwdLnFGEwBhYQyVxWl7/4fFwYXJ0TRxkg02BxgM=
