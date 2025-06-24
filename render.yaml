@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: shadowsocks-go
+    env: go
+    buildCommand: "go build -o server main.go"
+    startCommand: "./server"
+    plan: free
+    envVars:
+      - key: PORT
+        value: "8388"
